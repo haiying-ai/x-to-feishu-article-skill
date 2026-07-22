@@ -1,0 +1,4 @@
+interface:
+  display_name: "X 文章归档到飞书"
+  short_description: "抓取 X 长文、原图并复核后归档到固定飞书文件夹中"
+  default_prompt: "Use $x-to-feishu-article to archive this X post as a verified Feishu document."
