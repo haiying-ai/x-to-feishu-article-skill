@@ -6,6 +6,7 @@
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Feishu](https://img.shields.io/badge/Output-Feishu_Doc-3370FF)](https://www.feishu.cn/)
 [![Platforms](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-blue)](#运行要求)
+[![License](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
 复制粘贴一篇 X 文章很容易，难的是保住段落、列表、代码块和原图，并确认飞书里的最终结果没有缺字、漏图或重复创建。
 
@@ -69,7 +70,7 @@ flowchart LR
 
 ## 安装
 
-将仓库克隆到当前用户的 Codex Skills 目录。私有仓库的安装者需要先拥有仓库访问权限。
+将仓库克隆到当前用户的 Codex Skills 目录。
 
 ### macOS / Linux
 
@@ -234,6 +235,10 @@ node --check scripts/configure.js
 ## 贡献
 
 欢迎通过 Issue 或 Pull Request 改进解析兼容性、跨平台引导、格式还原和复核规则。提交前请说明测试使用的内容类型（普通帖子、长文章、代码、列表或多图），并确保示例中不包含私人凭据。
+
+## License
+
+[MIT](./LICENSE)
 
 ---
 
