@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: 脚本与技能定义校验
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 脚本语法正确
+        run: |
+          node --check scripts/build_article.js
+          node --check scripts/configure.js
+
+      - name: SKILL.md 具备必需的前置元数据
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const md = fs.readFileSync('SKILL.md', 'utf8');
+          const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+          if (!m) {
+            console.error('SKILL.md 缺少 YAML frontmatter');
+            process.exit(1);
+          }
+          for (const key of ['name', 'description']) {
+            if (!new RegExp('^' + key + ':', 'm').test(m[1])) {
+              console.error(`frontmatter 缺少 ${key}`);
+              process.exit(1);
+            }
+          }
+          console.log('frontmatter OK');
+          NODE
+
+      - name: 仓库内不含凭据文件
+        run: |
+          found=$(git ls-files | grep -iE '\.(pem|key|p12|pfx)$|(^|/)\.env$|(^|/)config\.json$' || true)
+          if [ -n "$found" ]; then
+            echo "发现疑似凭据文件："
+            echo "$found"
+            exit 1
+          fi
+          echo "未发现凭据文件"

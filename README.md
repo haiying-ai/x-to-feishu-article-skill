@@ -2,6 +2,7 @@
 
 > 把一条 X（Twitter）帖子或长文章，完整、可复核地归档为飞书云文档。
 
+[![CI](https://github.com/haiying-ai/x-to-feishu-article-skill/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/haiying-ai/x-to-feishu-article-skill/actions/workflows/ci.yml)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-111827)](./SKILL.md)
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Feishu](https://img.shields.io/badge/Output-Feishu_Doc-3370FF)](https://www.feishu.cn/)
